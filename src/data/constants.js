@@ -359,8 +359,7 @@ export const experiencedata = [
     title: "Web Development Intern",
     subtitle: "Ogma Conceptions",
     description: "Led development of a customer management system within a 4-member team, implementing agile methodology best practices. Engineered React.js UI components following modern design principles, increasing user engagement by 25%. Collaborated to optimize database queries and API endpoints, reducing response time by 40%.",
-    image: "https://drive.google.com/uc?export=view&id=1_xrWAQe_Mt1wUO9nQBX8JL9mTXJA4hWW
-",
+    image: "https://drive.google.com/uc?export=view&id=1_xrWAQe_Mt1wUO9nQBX8JL9mTXJA4hWW",
     githubLink: "https://github.com/shashi9933"
   }
 ];
