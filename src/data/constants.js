@@ -1,8 +1,8 @@
 // Portfolio Constants
 export const links = {
-  linkedinLink: "https://www.linkedin.com/in/shashi-shekhar-1a3a1a1a1a/",
-  githubLink: "https://github.com/shashishekhar9932",
-  instagramLink: "https://www.instagram.com/shashishekhar9932/"
+  linkedinLink: "www.linkedin.com/in/shashishekhar9932",
+  githubLink: "https://github.com/shashi9933",
+  instagramLink: "https://www.instagram.com/shashishekhar0.7/"
 };
 
 export const skillImage = {};
@@ -14,12 +14,12 @@ export const projectsdata = [
     subtitle: "CAT Preparation Platform",
     description:
       "Backend-driven full-stack platform for CAT preparation featuring authentication, mock tests, performance analytics, and admin workflows. Designed REST APIs, relational data models, and complete test lifecycle handling with a production-ready architecture.",
-    image: "https://via.placeholder.com/400x300?text=CATrix",
+    image: "https://drive.google.com/file/d/1jfhydXaojnKHXlLJvs3sizTtw_xsTAlw/view?usp=drive_link",
     techStack: ["Node.js", "Express", "PostgreSQL", "Prisma", "React", "TypeScript"],
 
     // Detailed Project Information
     why: "Built to address the lack of comprehensive, free CAT preparation platforms. Students needed an all-in-one solution for mock tests, performance tracking, and adaptive learning without expensive subscriptions.",
-    when: "December 2024 - January 2025 (6 weeks)",
+    when: "August 2025 - October 2025 (9 weeks)",
     how: "Migrated from Supabase to custom Express.js backend with PostgreSQL for full control. Implemented JWT authentication, designed 8-table relational schema with Prisma ORM, created 25 REST API endpoints, and built React frontend with Material-UI components.",
 
     techStackDetailed: {
@@ -66,7 +66,7 @@ export const projectsdata = [
     subtitle: "Vocabulary Building Application",
     description:
       "Full-stack vocabulary management application designed for exam preparation. Supports word storage, search, and retrieval with clean REST APIs and a responsive frontend integrated with backend services.",
-    image: "https://via.placeholder.com/400x300?text=Dictovo",
+    image: "https://drive.google.com/file/d/1_xrWAQe_Mt1wUO9nQBX8JL9mTXJA4hWW/view?usp=drive_link",
     techStack: ["React", "Node.js", "Express", "MongoDB"],
 
     // Detailed Project Information
@@ -123,12 +123,12 @@ export const projectsdata = [
     subtitle: "Data Analysis & Visualization Platform",
     description:
       "Intelligent data analytics platform that automatically parses uploaded files (PDF/CSV), performs statistical analysis, and generates interactive visualizations. Built during internship to solve real-world data insight extraction challenges.",
-    image: "https://via.placeholder.com/400x300?text=DataViz",
+    image: "https://drive.google.com/file/d/1DED4xNsfB2NvZMtxrFQgr1py8EouoycU/view?usp=drive_link",
     techStack: ["React", "Node.js", "Express", "Chart.js", "Tailwind CSS"],
 
     // Detailed Project Information
     why: "Created during internship to solve the problem of manual data analysis. Users needed a tool to quickly upload data files and get instant insights without complex spreadsheet work or coding knowledge.",
-    when: "June 2024 - July 2024 (Internship Project, 6 weeks)",
+    when: "October 2023 - December 2023 ( 6 weeks)",
     how: "Built full-stack application with React frontend for interactive UI. Implemented CSV/PDF parsing on backend, statistical calculations, and Chart.js for visualizations. Added PDF report generation using html2canvas and jsPDF for downloadable insights.",
 
     techStackDetailed: {
@@ -179,7 +179,7 @@ export const projectsdata = [
     subtitle: "Role-Based Smart E-Commerce Platform",
     description:
       "Intelligent e-commerce platform featuring role-based product bundling using ML association rule mining. Automatically suggests optimized product bundles for YouTube Creators, Teachers, Students, and Professionals with bulk discounts.",
-    image: "https://via.placeholder.com/400x300?text=SmartBundle",
+    image: "https://drive.google.com/file/d/1euYyk-dsqcAsMEZjiXxpJoP0Eg7uJ8fY/view?usp=drive_link",
     techStack: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "ML (Apriori Algorithm)"],
 
     // Detailed Project Information
@@ -239,12 +239,12 @@ export const projectsdata = [
     subtitle: "Stock Market Analysis Platform",
     description:
       "Comprehensive stock market analysis platform with real-time data fetching, technical indicators, ML-based predictions, and interactive visualizations. Features ensemble prediction models and SMS alerts.",
-    image: "https://via.placeholder.com/400x300?text=StockSense",
+    image: "https://drive.google.com/file/d/13LYG5K8CFAFJbWh4JhXLmhnjm3gR6If7/view?usp=drive_link",
     techStack: ["Python", "Streamlit", "Pandas", "NumPy", "Plotly", "yfinance", "Scikit-learn"],
 
     // Detailed Project Information
     why: "Developed to democratize stock market analysis by providing free, advanced technical analysis tools. Retail investors needed accessible ML-powered predictions without expensive Bloomberg terminals.",
-    when: "September 2024 - November 2024 (10 weeks)",
+    when: "September 2024 - January 2025 (10 weeks)",
     how: "Built with Streamlit for rapid prototyping. Integrated yfinance API for real-time stock data with smart caching. Implemented ensemble ML model combining linear regression, polynomial features, ARIMA time-series, and Fourier analysis. Created 40+ technical indicators using TA-Lib and custom algorithms. Added Twilio SMS alerts for price notifications.",
 
     techStackDetailed: {
@@ -359,8 +359,9 @@ export const experiencedata = [
     title: "Web Development Intern",
     subtitle: "Ogma Conceptions",
     description: "Led development of a customer management system within a 4-member team, implementing agile methodology best practices. Engineered React.js UI components following modern design principles, increasing user engagement by 25%. Collaborated to optimize database queries and API endpoints, reducing response time by 40%.",
-    image: "https://via.placeholder.com/300?text=Ogma",
-    githubLink: "https://github.com/shashishekhar9932/Customer-Management-System"
+    image: "https://drive.google.com/uc?export=view&id=1_xrWAQe_Mt1wUO9nQBX8JL9mTXJA4hWW
+",
+    githubLink: "https://github.com/shashi9933"
   }
 ];
 
