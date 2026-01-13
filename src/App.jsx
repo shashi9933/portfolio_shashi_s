@@ -1022,9 +1022,9 @@ const Footer = () => {
   const { isDarkMode } = useTheme();
 
   const socialLinks = [
-    { Icon: Github, href: 'https://github.com/shashishekhar9932', label: 'GitHub' },
-    { Icon: Linkedin, href: 'https://www.linkedin.com/in/shashi-shekhar-1a3a1a1a1a/', label: 'LinkedIn' },
-    { Icon: Instagram, href: 'https://www.instagram.com/shashishekhar9932/', label: 'Instagram' },
+    { Icon: Github, href: 'https://github.com/shashi9933', label: 'GitHub' },
+    { Icon: Linkedin, href: 'www.linkedin.com/in/shashishekhar9932', label: 'LinkedIn' },
+    { Icon: Instagram, href: 'https://www.instagram.com/shashishekhar0.7/', label: 'Instagram' },
     { Icon: Mail, href: 'mailto:shashiabc9932@gmail.com', label: 'Email' }
   ];
 
