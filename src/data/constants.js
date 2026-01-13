@@ -45,7 +45,7 @@ export const projectsdata = [
       { label: "Backend Repository", url: "https://github.com/shashi9933/CATrix_backend" }
     ],
 
-    websiteLink: null,
+    websiteLink: "https://ca-trix-frontend.vercel.app/",
 
     futureScope: [
       "Spaced repetition algorithm for adaptive learning",
