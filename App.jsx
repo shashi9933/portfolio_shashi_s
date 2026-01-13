@@ -2,13 +2,13 @@ import React, { useState, useEffect, useRef, createContext, useContext } from 'r
 import { Menu, X, Moon, Sun, ExternalLink, Github, Linkedin, Instagram, Mail, ArrowUp, Code, Database, Palette, Zap } from 'lucide-react';
 
 // Theme Context
-const ThemeContext = createContext({ isDarkMode: true, toggleTheme: () => {} });
+const ThemeContext = createContext({ isDarkMode: true, toggleTheme: () => { } });
 
 const ThemeProvider = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(true);
-  
+
   const toggleTheme = () => setIsDarkMode(prev => !prev);
-  
+
   return (
     <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>
       {children}
@@ -53,9 +53,8 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-      isDarkMode ? 'bg-black/40' : 'bg-white/40'
-    } backdrop-blur-lg border-b ${isDarkMode ? 'border-cyan-500/20' : 'border-blue-300/30'}`}>
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isDarkMode ? 'bg-black/40' : 'bg-white/40'
+      } backdrop-blur-lg border-b ${isDarkMode ? 'border-cyan-500/20' : 'border-blue-300/30'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className={`text-2xl font-bold ${isDarkMode ? 'text-cyan-400' : 'text-blue-600'}`}>
@@ -68,20 +67,18 @@ const Navbar = () => {
               <a
                 key={item.href}
                 href={item.href}
-                className={`transition-all duration-300 ${
-                  activeSection === item.href.slice(1)
+                className={`transition-all duration-300 ${activeSection === item.href.slice(1)
                     ? isDarkMode ? 'text-cyan-400' : 'text-blue-600'
                     : isDarkMode ? 'text-gray-300 hover:text-cyan-400' : 'text-gray-700 hover:text-blue-600'
-                }`}
+                  }`}
               >
                 {item.label}
               </a>
             ))}
             <button
               onClick={toggleTheme}
-              className={`p-2 rounded-full transition-all duration-300 ${
-                isDarkMode ? 'bg-cyan-500/20 text-cyan-400 hover:bg-cyan-500/30' : 'bg-blue-100 text-blue-600 hover:bg-blue-200'
-              }`}
+              className={`p-2 rounded-full transition-all duration-300 ${isDarkMode ? 'bg-cyan-500/20 text-cyan-400 hover:bg-cyan-500/30' : 'bg-blue-100 text-blue-600 hover:bg-blue-200'
+                }`}
             >
               {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>
@@ -114,11 +111,10 @@ const Navbar = () => {
                 key={item.href}
                 href={item.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`block py-2 px-4 rounded-lg transition-all duration-300 ${
-                  activeSection === item.href.slice(1)
+                className={`block py-2 px-4 rounded-lg transition-all duration-300 ${activeSection === item.href.slice(1)
                     ? isDarkMode ? 'bg-cyan-500/20 text-cyan-400' : 'bg-blue-100 text-blue-600'
                     : isDarkMode ? 'text-gray-300 hover:bg-cyan-500/10' : 'text-gray-700 hover:bg-blue-50'
-                }`}
+                  }`}
               >
                 {item.label}
               </a>
@@ -208,7 +204,7 @@ const HeroSection = () => {
       // Smoothly interpolate rotation offset for fluid motion
       targetRotationRef.current.x = mouseOffsetX * 0.3;
       targetRotationRef.current.y = mouseOffsetY * 0.3;
-      
+
       rotationOffsetRef.current.x += (targetRotationRef.current.x - rotationOffsetRef.current.x) * 0.1;
       rotationOffsetRef.current.y += (targetRotationRef.current.y - rotationOffsetRef.current.y) * 0.1;
 
@@ -216,13 +212,13 @@ const HeroSection = () => {
       stars.forEach(star => {
         star.opacity += star.twinkleSpeed;
         if (star.opacity > 1 || star.opacity < 0) star.twinkleSpeed *= -1;
-        
+
         const parallaxX = (mouseRef.current.x - canvas.width / 2) * 0.01 * star.depth;
         const parallaxY = (mouseRef.current.y - canvas.height / 2) * 0.01 * star.depth;
-        
+
         ctx.beginPath();
         ctx.arc(star.x + parallaxX, star.y + parallaxY, star.radius * star.depth, 0, Math.PI * 2);
-        ctx.fillStyle = isDarkMode 
+        ctx.fillStyle = isDarkMode
           ? `rgba(255, 255, 255, ${Math.abs(star.opacity)})`
           : `rgba(255, 255, 255, ${Math.abs(star.opacity) * 0.5})`;
         ctx.fill();
@@ -283,7 +279,7 @@ const HeroSection = () => {
       // Draw planets
       planets.forEach((planet, index) => {
         planet.angle += planet.speed;
-        
+
         // 3D orbit with tilt influenced by mouse
         const tiltInfluence = rotationOffsetRef.current.y * 0.2;
         const tiltX = Math.cos(planet.angle) * planet.distance;
@@ -301,8 +297,8 @@ const HeroSection = () => {
           else ctx.lineTo(ox, oy);
         }
         ctx.closePath();
-        ctx.strokeStyle = isDarkMode 
-          ? `rgba(100, 255, 218, ${hoveredPlanet === index ? 0.4 : 0.1})` 
+        ctx.strokeStyle = isDarkMode
+          ? `rgba(100, 255, 218, ${hoveredPlanet === index ? 0.4 : 0.1})`
           : `rgba(100, 150, 255, ${hoveredPlanet === index ? 0.5 : 0.2})`;
         ctx.lineWidth = hoveredPlanet === index ? 3 : 1;
         ctx.stroke();
@@ -336,11 +332,11 @@ const HeroSection = () => {
         }
 
         const planetGradient = ctx.createRadialGradient(
-          x - planet.radius * 0.3, 
-          y - planet.radius * 0.3, 
+          x - planet.radius * 0.3,
+          y - planet.radius * 0.3,
           planet.radius * 0.1,
-          x, 
-          y, 
+          x,
+          y,
           planet.radius
         );
         planetGradient.addColorStop(0, planet.color);
@@ -362,7 +358,7 @@ const HeroSection = () => {
           ctx.strokeStyle = 'rgba(218, 165, 32, 0.6)';
           ctx.lineWidth = 2;
           ctx.stroke();
-          
+
           ctx.beginPath();
           ctx.ellipse(x, y, planet.radius * 2.3, planet.radius * 0.6, planet.angle * 0.1, 0, Math.PI * 2);
           ctx.strokeStyle = 'rgba(218, 165, 32, 0.4)';
@@ -376,7 +372,7 @@ const HeroSection = () => {
           const moonDistance = planet.radius * 3;
           const moonX = x + Math.cos(moonAngle) * moonDistance;
           const moonY = y + Math.sin(moonAngle) * moonDistance;
-          
+
           ctx.beginPath();
           ctx.arc(moonX, moonY, planet.radius * 0.3, 0, Math.PI * 2);
           ctx.fillStyle = '#CCCCCC';
@@ -386,12 +382,12 @@ const HeroSection = () => {
         // Draw planet name on hover with background
         if (isHovered) {
           const nameY = y - planet.radius * 3;
-          
+
           ctx.font = 'bold 18px Arial';
           ctx.fillStyle = isDarkMode ? '#00FFFF' : '#0066FF';
           ctx.textAlign = 'center';
           ctx.fillText(planet.name, x, nameY);
-          
+
           // Draw info text below
           ctx.font = '12px Arial';
           ctx.fillStyle = isDarkMode ? '#AAFFFF' : '#0099FF';
@@ -487,34 +483,30 @@ const HeroSection = () => {
         className={`absolute inset-0 ${isDarkMode ? 'bg-black' : 'bg-gradient-to-b from-sky-300 to-sky-100'}`}
       />
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
-        <h1 className={`text-5xl md:text-7xl font-bold mb-4 ${
-          isDarkMode ? 'text-white' : 'text-gray-900'
-        } animate-fade-in`}>
+        <h1 className={`text-5xl md:text-7xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'
+          } animate-fade-in`}>
           Your Name
         </h1>
-        <p className={`text-xl md:text-3xl mb-8 ${
-          isDarkMode ? 'text-cyan-400' : 'text-blue-600'
-        }`}>
+        <p className={`text-xl md:text-3xl mb-8 ${isDarkMode ? 'text-cyan-400' : 'text-blue-600'
+          }`}>
           Full Stack Developer | Creative Technologist
         </p>
         <div className="flex space-x-4">
           <a
             href="#projects"
-            className={`px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${
-              isDarkMode 
+            className={`px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${isDarkMode
                 ? 'bg-cyan-500 text-white hover:bg-cyan-400 shadow-lg shadow-cyan-500/50'
                 : 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-500/50'
-            }`}
+              }`}
           >
             View Projects
           </a>
           <a
             href="#contact"
-            className={`px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${
-              isDarkMode 
+            className={`px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${isDarkMode
                 ? 'bg-white/10 text-white hover:bg-white/20 backdrop-blur-md border border-white/20'
                 : 'bg-white/50 text-gray-900 hover:bg-white/70 backdrop-blur-md border border-gray-300'
-            }`}
+              }`}
           >
             Contact Me
           </a>
@@ -540,42 +532,36 @@ const SkillsSection = () => {
   ];
 
   return (
-    <section id="skills" className={`min-h-screen py-20 ${
-      isDarkMode ? 'bg-gradient-to-b from-black via-gray-900 to-black' : 'bg-gradient-to-b from-sky-50 via-white to-sky-50'
-    }`}>
+    <section id="skills" className={`min-h-screen py-20 ${isDarkMode ? 'bg-gradient-to-b from-black via-gray-900 to-black' : 'bg-gradient-to-b from-sky-50 via-white to-sky-50'
+      }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className={`text-4xl md:text-5xl font-bold text-center mb-16 ${
-          isDarkMode ? 'text-white' : 'text-gray-900'
-        }`}>
+        <h2 className={`text-4xl md:text-5xl font-bold text-center mb-16 ${isDarkMode ? 'text-white' : 'text-gray-900'
+          }`}>
           My Skills
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {skills.map((skill, index) => (
             <div
               key={index}
-              className={`group relative overflow-hidden rounded-xl p-6 transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 ${
-                isDarkMode 
+              className={`group relative overflow-hidden rounded-xl p-6 transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 ${isDarkMode
                   ? 'bg-gray-800/50 border border-gray-700/30 hover:border-cyan-500/50'
                   : 'bg-white/50 border border-gray-200/50 hover:border-blue-500/50'
-              } backdrop-blur-md shadow-lg`}
+                } backdrop-blur-md shadow-lg`}
             >
-              <div className={`absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300 ${
-                isDarkMode ? 'bg-gradient-to-br from-cyan-500 to-blue-500' : 'bg-gradient-to-br from-blue-400 to-cyan-400'
-              }`} />
+              <div className={`absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300 ${isDarkMode ? 'bg-gradient-to-br from-cyan-500 to-blue-500' : 'bg-gradient-to-br from-blue-400 to-cyan-400'
+                }`} />
               <div className="relative z-10 flex flex-col items-center">
                 <div className={`mb-4 ${isDarkMode ? 'text-cyan-400' : 'text-blue-600'}`}>
                   {skill.icon}
                 </div>
-                <h3 className={`text-lg font-semibold mb-3 ${
-                  isDarkMode ? 'text-white' : 'text-gray-900'
-                }`}>
+                <h3 className={`text-lg font-semibold mb-3 ${isDarkMode ? 'text-white' : 'text-gray-900'
+                  }`}>
                   {skill.name}
                 </h3>
                 <div className="w-full bg-gray-700/30 rounded-full h-2">
                   <div
-                    className={`h-2 rounded-full transition-all duration-1000 ${
-                      isDarkMode ? 'bg-cyan-500' : 'bg-blue-500'
-                    }`}
+                    className={`h-2 rounded-full transition-all duration-1000 ${isDarkMode ? 'bg-cyan-500' : 'bg-blue-500'
+                      }`}
                     style={{ width: `${skill.proficiency}%` }}
                   />
                 </div>
@@ -640,13 +626,11 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section id="projects" className={`min-h-screen py-20 ${
-      isDarkMode ? 'bg-gradient-to-b from-gray-900 via-black to-gray-900' : 'bg-gradient-to-b from-white via-sky-50 to-white'
-    }`}>
+    <section id="projects" className={`min-h-screen py-20 ${isDarkMode ? 'bg-gradient-to-b from-gray-900 via-black to-gray-900' : 'bg-gradient-to-b from-white via-sky-50 to-white'
+      }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className={`text-4xl md:text-5xl font-bold text-center mb-16 ${
-          isDarkMode ? 'text-white' : 'text-gray-900'
-        }`}>
+        <h2 className={`text-4xl md:text-5xl font-bold text-center mb-16 ${isDarkMode ? 'text-white' : 'text-gray-900'
+          }`}>
           Featured Projects
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -654,11 +638,10 @@ const ProjectsSection = () => {
             <div
               key={project.id}
               onClick={() => setSelectedProject(project)}
-              className={`group relative overflow-hidden rounded-xl cursor-pointer transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 ${
-                isDarkMode 
+              className={`group relative overflow-hidden rounded-xl cursor-pointer transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 ${isDarkMode
                   ? 'bg-gray-800/50 border border-gray-700/30'
                   : 'bg-white/70 border border-gray-200/50'
-              } backdrop-blur-md shadow-lg`}
+                } backdrop-blur-md shadow-lg`}
             >
               <div className={`h-48 bg-gradient-to-br ${project.gradient} relative overflow-hidden`}>
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300" />
@@ -667,25 +650,22 @@ const ProjectsSection = () => {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className={`text-xl font-semibold mb-2 ${
-                  isDarkMode ? 'text-white' : 'text-gray-900'
-                }`}>
+                <h3 className={`text-xl font-semibold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'
+                  }`}>
                   {project.title}
                 </h3>
-                <p className={`text-sm mb-4 ${
-                  isDarkMode ? 'text-gray-400' : 'text-gray-600'
-                }`}>
+                <p className={`text-sm mb-4 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'
+                  }`}>
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, index) => (
                     <span
                       key={index}
-                      className={`px-3 py-1 rounded-full text-xs font-medium ${
-                        isDarkMode 
+                      className={`px-3 py-1 rounded-full text-xs font-medium ${isDarkMode
                           ? 'bg-cyan-500/20 text-cyan-400'
                           : 'bg-blue-100 text-blue-600'
-                      }`}
+                        }`}
                     >
                       {tech}
                     </span>
@@ -704,9 +684,8 @@ const ProjectsSection = () => {
           onClick={() => setSelectedProject(null)}
         >
           <div
-            className={`relative w-full max-w-4xl rounded-2xl overflow-hidden ${
-              isDarkMode ? 'bg-gray-900 border border-gray-700' : 'bg-white border border-gray-200'
-            } shadow-2xl`}
+            className={`relative w-full max-w-4xl rounded-2xl overflow-hidden ${isDarkMode ? 'bg-gray-900 border border-gray-700' : 'bg-white border border-gray-200'
+              } shadow-2xl`}
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -718,31 +697,27 @@ const ProjectsSection = () => {
             <div className="grid md:grid-cols-2 gap-8 p-8">
               <div className={`h-64 md:h-full rounded-xl bg-gradient-to-br ${selectedProject.gradient}`} />
               <div>
-                <h2 className={`text-3xl font-bold mb-4 ${
-                  isDarkMode ? 'text-white' : 'text-gray-900'
-                }`}>
+                <h2 className={`text-3xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'
+                  }`}>
                   {selectedProject.title}
                 </h2>
-                <p className={`mb-6 ${
-                  isDarkMode ? 'text-gray-300' : 'text-gray-600'
-                }`}>
+                <p className={`mb-6 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'
+                  }`}>
                   {selectedProject.fullDescription}
                 </p>
                 <div className="mb-6">
-                  <h3 className={`text-xl font-semibold mb-3 ${
-                    isDarkMode ? 'text-white' : 'text-gray-900'
-                  }`}>
+                  <h3 className={`text-xl font-semibold mb-3 ${isDarkMode ? 'text-white' : 'text-gray-900'
+                    }`}>
                     Technologies
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {selectedProject.technologies.map((tech, index) => (
                       <span
                         key={index}
-                        className={`px-4 py-2 rounded-full text-sm font-medium ${
-                          isDarkMode 
+                        className={`px-4 py-2 rounded-full text-sm font-medium ${isDarkMode
                             ? 'bg-cyan-500/20 text-cyan-400'
                             : 'bg-blue-100 text-blue-600'
-                        }`}
+                          }`}
                       >
                         {tech}
                       </span>
@@ -754,11 +729,10 @@ const ProjectsSection = () => {
                     href={selectedProject.githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`flex items-center space-x-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                      isDarkMode 
+                    className={`flex items-center space-x-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${isDarkMode
                         ? 'bg-cyan-500 text-white hover:bg-cyan-400'
                         : 'bg-blue-600 text-white hover:bg-blue-700'
-                    }`}
+                      }`}
                   >
                     <Github size={20} />
                     <span>GitHub</span>
@@ -767,11 +741,10 @@ const ProjectsSection = () => {
                     href={selectedProject.liveLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`flex items-center space-x-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                      isDarkMode 
+                    className={`flex items-center space-x-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${isDarkMode
                         ? 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
                         : 'bg-gray-100 text-gray-900 hover:bg-gray-200 border border-gray-300'
-                    }`}
+                      }`}
                   >
                     <ExternalLink size={20} />
                     <span>Live Demo</span>
@@ -802,9 +775,8 @@ const Footer = () => {
   };
 
   return (
-    <footer id="contact" className={`relative py-16 overflow-hidden ${
-      isDarkMode ? 'bg-black' : 'bg-sky-50'
-    }`}>
+    <footer id="contact" className={`relative py-16 overflow-hidden ${isDarkMode ? 'bg-black' : 'bg-sky-50'
+      }`}>
       {/* Animated stars background */}
       <div className="absolute inset-0 overflow-hidden opacity-30">
         {[...Array(50)].map((_, i) => (
@@ -831,28 +803,25 @@ const Footer = () => {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`p-3 rounded-full transition-all duration-300 transform hover:scale-110 ${
-                  isDarkMode 
+                className={`p-3 rounded-full transition-all duration-300 transform hover:scale-110 ${isDarkMode
                     ? 'bg-cyan-500/20 text-cyan-400 hover:bg-cyan-500/30'
                     : 'bg-blue-100 text-blue-600 hover:bg-blue-200'
-                }`}
+                  }`}
               >
                 <Icon size={24} />
               </a>
             ))}
           </div>
-          <p className={`text-sm mb-6 ${
-            isDarkMode ? 'text-gray-400' : 'text-gray-600'
-          }`}>
+          <p className={`text-sm mb-6 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'
+            }`}>
             © {new Date().getFullYear()} Your Name. All Rights Reserved.
           </p>
           <button
             onClick={scrollToTop}
-            className={`p-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 ${
-              isDarkMode 
+            className={`p-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 ${isDarkMode
                 ? 'bg-cyan-500 text-white hover:bg-cyan-400'
                 : 'bg-blue-600 text-white hover:bg-blue-700'
-            }`}
+              }`}
           >
             <ArrowUp size={24} />
           </button>

@@ -3,13 +3,13 @@ import { Menu, X, Moon, Sun, ExternalLink, Github, Linkedin, Instagram, Mail, Ar
 import { projectsdata, programskills, databaseskills, webskills, devops, machinelearning, aboutdetails, experiencedata, educationdata, socialIcon } from './data/constants';
 
 // Theme Context
-const ThemeContext = createContext({ isDarkMode: true, toggleTheme: () => {} });
+const ThemeContext = createContext({ isDarkMode: true, toggleTheme: () => { } });
 
 const ThemeProvider = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(true);
-  
+
   const toggleTheme = () => setIsDarkMode(prev => !prev);
-  
+
   return (
     <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>
       {children}
@@ -54,13 +54,12 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-      isDarkMode ? 'bg-black/40' : 'bg-white/40'
-    } backdrop-blur-lg border-b ${isDarkMode ? 'border-cyan-500/20' : 'border-blue-300/30'}`}>
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isDarkMode ? 'bg-black/40' : 'bg-white/40'
+      } backdrop-blur-lg border-b ${isDarkMode ? 'border-cyan-500/20' : 'border-blue-300/30'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className={`text-2xl font-bold ${isDarkMode ? 'text-cyan-400' : 'text-blue-600'}`}>
-            Portfolio
+            Shashi
           </div>
 
           {/* Desktop Navigation */}
@@ -69,20 +68,18 @@ const Navbar = () => {
               <a
                 key={item.href}
                 href={item.href}
-                className={`transition-all duration-300 ${
-                  activeSection === item.href.slice(1)
-                    ? isDarkMode ? 'text-cyan-400' : 'text-blue-600'
-                    : isDarkMode ? 'text-gray-300 hover:text-cyan-400' : 'text-gray-700 hover:text-blue-600'
-                }`}
+                className={`transition-all duration-300 ${activeSection === item.href.slice(1)
+                  ? isDarkMode ? 'text-cyan-400' : 'text-blue-600'
+                  : isDarkMode ? 'text-gray-300 hover:text-cyan-400' : 'text-gray-700 hover:text-blue-600'
+                  }`}
               >
                 {item.label}
               </a>
             ))}
             <button
               onClick={toggleTheme}
-              className={`p-2 rounded-full transition-all duration-300 ${
-                isDarkMode ? 'bg-cyan-500/20 text-cyan-400 hover:bg-cyan-500/30' : 'bg-blue-100 text-blue-600 hover:bg-blue-200'
-              }`}
+              className={`p-2 rounded-full transition-all duration-300 ${isDarkMode ? 'bg-cyan-500/20 text-cyan-400 hover:bg-cyan-500/30' : 'bg-blue-100 text-blue-600 hover:bg-blue-200'
+                }`}
             >
               {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>
@@ -115,11 +112,10 @@ const Navbar = () => {
                 key={item.href}
                 href={item.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`block py-2 px-4 rounded-lg transition-all duration-300 ${
-                  activeSection === item.href.slice(1)
-                    ? isDarkMode ? 'bg-cyan-500/20 text-cyan-400' : 'bg-blue-100 text-blue-600'
-                    : isDarkMode ? 'text-gray-300 hover:bg-cyan-500/10' : 'text-gray-700 hover:bg-blue-50'
-                }`}
+                className={`block py-2 px-4 rounded-lg transition-all duration-300 ${activeSection === item.href.slice(1)
+                  ? isDarkMode ? 'bg-cyan-500/20 text-cyan-400' : 'bg-blue-100 text-blue-600'
+                  : isDarkMode ? 'text-gray-300 hover:bg-cyan-500/10' : 'text-gray-700 hover:bg-blue-50'
+                  }`}
               >
                 {item.label}
               </a>
@@ -176,17 +172,17 @@ const HeroSection = () => {
       }
     };
 
-    // 9 Planets with realistic data
+    // 9 Planets with realistic data - SLOWER SPEEDS for better viewing
     const planets = [
-      { name: 'Mercury', angle: 0, distance: 60, radius: 4, speed: 0.04, color: '#8C7853', tilt: 0.1, info: 'Smallest planet\nClosest to Sun' },
-      { name: 'Venus', angle: Math.PI / 4, distance: 90, radius: 6, speed: 0.03, color: '#FFC649', tilt: 0.15, info: 'Hottest planet\nRotates backward' },
-      { name: 'Earth', angle: Math.PI / 2, distance: 120, radius: 6.5, speed: 0.025, color: '#4A90E2', tilt: 0.2, moon: true, info: 'Our home\nOnly life known' },
-      { name: 'Mars', angle: Math.PI * 0.75, distance: 150, radius: 5, speed: 0.02, color: '#E27B58', tilt: 0.18, info: 'Red planet\nHas 2 moons' },
-      { name: 'Jupiter', angle: Math.PI, distance: 200, radius: 15, speed: 0.012, color: '#C88B3A', tilt: 0.25, info: 'Largest planet\nGas giant' },
-      { name: 'Saturn', angle: Math.PI * 1.25, distance: 250, radius: 13, speed: 0.009, color: '#FAD5A5', tilt: 0.3, rings: true, info: 'Ringed beauty\nLeast dense' },
-      { name: 'Uranus', angle: Math.PI * 1.5, distance: 290, radius: 9, speed: 0.006, color: '#4FD0E7', tilt: 0.22, info: 'Ice giant\nRotates sideways' },
-      { name: 'Neptune', angle: Math.PI * 1.75, distance: 330, radius: 8.5, speed: 0.005, color: '#4166F5', tilt: 0.24, info: 'Windiest planet\nFarthest orbit' },
-      { name: 'Pluto', angle: Math.PI * 2, distance: 360, radius: 3, speed: 0.004, color: '#C0B2A5', tilt: 0.28, info: 'Dwarf planet\nIcy world' }
+      { name: 'Mercury', angle: 0, distance: 60, radius: 4, speed: 0.01, color: '#8C7853', tilt: 0.1, info: 'Smallest planet\nClosest to Sun' },
+      { name: 'Venus', angle: Math.PI / 4, distance: 90, radius: 6, speed: 0.0075, color: '#FFC649', tilt: 0.15, info: 'Hottest planet\nRotates backward' },
+      { name: 'Earth', angle: Math.PI / 2, distance: 120, radius: 6.5, speed: 0.00625, color: '#4A90E2', tilt: 0.2, moon: true, info: 'Our home\nOnly life known' },
+      { name: 'Mars', angle: Math.PI * 0.75, distance: 150, radius: 5, speed: 0.005, color: '#E27B58', tilt: 0.18, info: 'Red planet\nHas 2 moons' },
+      { name: 'Jupiter', angle: Math.PI, distance: 200, radius: 15, speed: 0.003, color: '#C88B3A', tilt: 0.25, info: 'Largest planet\nGas giant' },
+      { name: 'Saturn', angle: Math.PI * 1.25, distance: 250, radius: 13, speed: 0.00225, color: '#FAD5A5', tilt: 0.3, rings: true, info: 'Ringed beauty\nLeast dense' },
+      { name: 'Uranus', angle: Math.PI * 1.5, distance: 290, radius: 9, speed: 0.0015, color: '#4FD0E7', tilt: 0.22, info: 'Ice giant\nRotates sideways' },
+      { name: 'Neptune', angle: Math.PI * 1.75, distance: 330, radius: 8.5, speed: 0.00125, color: '#4166F5', tilt: 0.24, info: 'Windiest planet\nFarthest orbit' },
+      { name: 'Pluto', angle: Math.PI * 2, distance: 360, radius: 3, speed: 0.001, color: '#C0B2A5', tilt: 0.28, info: 'Dwarf planet\nIcy world' }
     ];
 
     let animationId;
@@ -194,12 +190,12 @@ const HeroSection = () => {
 
     const animate = () => {
       hoveredPlanetRef.current = null;
-      
+
       ctx.fillStyle = isDarkMode ? 'rgba(0, 0, 0, 0.15)' : 'rgba(135, 206, 235, 0.15)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // Base rotation with time
-      rotation += 0.001;
+      // Base rotation with time - SLOWER for calmer effect
+      rotation += 0.0005;
 
       // Calculate target rotation based on mouse position (normalized -1 to 1)
       const centerX = canvas.width / 2;
@@ -207,24 +203,24 @@ const HeroSection = () => {
       const mouseOffsetX = (mouseRef.current.x - centerX) / centerX;
       const mouseOffsetY = (mouseRef.current.y - centerY) / centerY;
 
-      // Smoothly interpolate rotation offset for fluid motion
-      targetRotationRef.current.x = mouseOffsetX * 1.5;
-      targetRotationRef.current.y = mouseOffsetY * 1.5;
-      
-      rotationOffsetRef.current.x += (targetRotationRef.current.x - rotationOffsetRef.current.x) * 0.15;
-      rotationOffsetRef.current.y += (targetRotationRef.current.y - rotationOffsetRef.current.y) * 0.15;
+      // Smoothly interpolate rotation offset for fluid motion - ENHANCED INTERACTIVITY
+      targetRotationRef.current.x = mouseOffsetX * 0.9;  // More responsive
+      targetRotationRef.current.y = mouseOffsetY * 0.9;  // More responsive
+
+      rotationOffsetRef.current.x += (targetRotationRef.current.x - rotationOffsetRef.current.x) * 0.08;  // Smoother
+      rotationOffsetRef.current.y += (targetRotationRef.current.y - rotationOffsetRef.current.y) * 0.08;  // Smoother
 
       // Draw stars with parallax
       stars.forEach(star => {
         star.opacity += star.twinkleSpeed;
         if (star.opacity > 1 || star.opacity < 0) star.twinkleSpeed *= -1;
-        
+
         const parallaxX = (mouseRef.current.x - canvas.width / 2) * 0.01 * star.depth;
         const parallaxY = (mouseRef.current.y - canvas.height / 2) * 0.01 * star.depth;
-        
+
         ctx.beginPath();
         ctx.arc(star.x + parallaxX, star.y + parallaxY, star.radius * star.depth, 0, Math.PI * 2);
-        ctx.fillStyle = isDarkMode 
+        ctx.fillStyle = isDarkMode
           ? `rgba(255, 255, 255, ${Math.abs(star.opacity)})`
           : `rgba(255, 255, 255, ${Math.abs(star.opacity) * 0.5})`;
         ctx.fill();
@@ -285,9 +281,9 @@ const HeroSection = () => {
       // Draw planets
       planets.forEach((planet, index) => {
         planet.angle += planet.speed;
-        
-        // 3D orbit with tilt influenced by mouse
-        const tiltInfluence = rotationOffsetRef.current.y * 0.2;
+
+        // 3D orbit with tilt influenced by mouse - ENHANCED TILT
+        const tiltInfluence = rotationOffsetRef.current.y * 0.6;  // Increased from 0.2 to 0.6
         const tiltX = Math.cos(planet.angle) * planet.distance;
         const tiltY = Math.sin(planet.angle) * planet.distance * Math.cos(planet.tilt + tiltInfluence);
         const x = canvasCenterX + tiltX;
@@ -303,8 +299,8 @@ const HeroSection = () => {
           else ctx.lineTo(ox, oy);
         }
         ctx.closePath();
-        ctx.strokeStyle = isDarkMode 
-          ? `rgba(100, 255, 218, ${hoveredPlanetRef.current === index ? 0.4 : 0.1})` 
+        ctx.strokeStyle = isDarkMode
+          ? `rgba(100, 255, 218, ${hoveredPlanetRef.current === index ? 0.4 : 0.1})`
           : `rgba(100, 150, 255, ${hoveredPlanetRef.current === index ? 0.5 : 0.2})`;
         ctx.lineWidth = hoveredPlanetRef.current === index ? 3 : 1;
         ctx.stroke();
@@ -337,11 +333,11 @@ const HeroSection = () => {
         }
 
         const planetGradient = ctx.createRadialGradient(
-          x - planet.radius * 0.3, 
-          y - planet.radius * 0.3, 
+          x - planet.radius * 0.3,
+          y - planet.radius * 0.3,
           planet.radius * 0.1,
-          x, 
-          y, 
+          x,
+          y,
           planet.radius
         );
         planetGradient.addColorStop(0, planet.color);
@@ -363,7 +359,7 @@ const HeroSection = () => {
           ctx.strokeStyle = 'rgba(218, 165, 32, 0.6)';
           ctx.lineWidth = 2;
           ctx.stroke();
-          
+
           ctx.beginPath();
           ctx.ellipse(x, y, planet.radius * 2.3, planet.radius * 0.6, planet.angle * 0.1, 0, Math.PI * 2);
           ctx.strokeStyle = 'rgba(218, 165, 32, 0.4)';
@@ -377,7 +373,7 @@ const HeroSection = () => {
           const moonDistance = planet.radius * 3;
           const moonX = x + Math.cos(moonAngle) * moonDistance;
           const moonY = y + Math.sin(moonAngle) * moonDistance;
-          
+
           ctx.beginPath();
           ctx.arc(moonX, moonY, planet.radius * 0.3, 0, Math.PI * 2);
           ctx.fillStyle = '#CCCCCC';
@@ -386,15 +382,15 @@ const HeroSection = () => {
 
         // Draw planet name on hover with background
         if (isHovered) {
-          const nameY = y - planet.radius * 3;
-          
-          ctx.font = 'bold 18px Arial';
+          const nameY = y - planet.radius * 3.5;  // More space
+
+          ctx.font = 'bold 22px Arial';  // Larger font
           ctx.fillStyle = isDarkMode ? '#00FFFF' : '#0066FF';
           ctx.textAlign = 'center';
           ctx.fillText(planet.name, x, nameY);
-          
+
           // Draw info text below
-          ctx.font = '12px Arial';
+          ctx.font = '14px Arial';  // Larger info font
           ctx.fillStyle = isDarkMode ? '#AAFFFF' : '#0099FF';
           const infoLines = planet.info.split('\n');
           infoLines.forEach((line, i) => {
@@ -414,7 +410,7 @@ const HeroSection = () => {
       ctx.fillStyle = isDarkMode ? 'rgba(100, 255, 218, 0.7)' : 'rgba(65, 105, 225, 0.7)';
       ctx.font = '14px Arial';
       ctx.textAlign = 'left';
-      ctx.fillText('Move your cursor to rotate the solar system • Scroll to zoom • Drag to pan', 20, 30);
+      ctx.fillText('Move cursor to tilt orbits • Hover planets for info • Scroll to zoom • Drag to pan', 20, 30);
 
       animationId = requestAnimationFrame(animate);
     };
@@ -490,34 +486,30 @@ const HeroSection = () => {
         className={`absolute inset-0 ${isDarkMode ? 'bg-black' : 'bg-gradient-to-b from-sky-300 to-sky-100'}`}
       />
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
-        <h1 className={`text-5xl md:text-7xl font-bold mb-4 ${
-          isDarkMode ? 'text-white' : 'text-gray-900'
-        } animate-fade-in`}>
+        <h1 className={`text-5xl md:text-7xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'
+          } animate-fade-in`}>
           {aboutdetails.name}
         </h1>
-        <p className={`text-xl md:text-3xl mb-8 ${
-          isDarkMode ? 'text-cyan-400' : 'text-blue-600'
-        }`}>
+        <p className={`text-xl md:text-3xl mb-8 ${isDarkMode ? 'text-cyan-400' : 'text-blue-600'
+          }`}>
           {aboutdetails.tagline}
         </p>
         <div className="flex space-x-4">
           <a
             href="#projects"
-            className={`px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${
-              isDarkMode 
-                ? 'bg-cyan-500 text-white hover:bg-cyan-400 shadow-lg shadow-cyan-500/50'
-                : 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-500/50'
-            }`}
+            className={`px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${isDarkMode
+              ? 'bg-cyan-500 text-white hover:bg-cyan-400 shadow-lg shadow-cyan-500/50'
+              : 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-500/50'
+              }`}
           >
             View Projects
           </a>
           <a
             href="#contact"
-            className={`px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${
-              isDarkMode 
-                ? 'bg-white/10 text-white hover:bg-white/20 backdrop-blur-md border border-white/20'
-                : 'bg-white/50 text-gray-900 hover:bg-white/70 backdrop-blur-md border border-gray-300'
-            }`}
+            className={`px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${isDarkMode
+              ? 'bg-white/10 text-white hover:bg-white/20 backdrop-blur-md border border-white/20'
+              : 'bg-white/50 text-gray-900 hover:bg-white/70 backdrop-blur-md border border-gray-300'
+              }`}
           >
             Contact Me
           </a>
@@ -527,7 +519,7 @@ const HeroSection = () => {
   );
 };
 
-// Skills Section
+// Skills Section - Static Grid with Glassmorphism
 const SkillsSection = () => {
   const { isDarkMode } = useTheme();
 
@@ -540,52 +532,71 @@ const SkillsSection = () => {
   ];
 
   const iconMap = {
-    javascript: '⚡', python: '🐍', c: '©️', cplusplus: '➕',
-    java: '☕', solidity: '💎', mongodb: '🍃', mysql: '🔷',
-    postgres: '🐘', react: '⚛️', node: '🟢', html: '📄',
-    css: '🎨', docker: '🐳', github: '🐙', tensorflow: '🤖',
-    pytorch: '🔥', scikit: '📊'
+    // Programming Languages
+    javascript: '⚡', python: '🐍', typescript: '📘', c: '©️', cplusplus: '➕',
+    java: '☕', solidity: '💎',
+    // Databases
+    mongodb: '🍃', mysql: '🔷', postgres: '🐘', prisma: '🔺',
+    // Web Development
+    react: '⚛️', node: '🟢', express: '🚂', redux: '🔄',
+    materialui: '🎨', tailwind: '💨', html: '📄', css: '🎨',
+    streamlit: '📊', axios: '📡', jwt: '🔐',
+    // DevOps
+    docker: '🐳', github: '🐙', vercel: '▲', render: '🎭',
+    railway: '🚄', actions: '⚙️',
+    // Machine Learning
+    tensorflow: '🤖', pytorch: '🔥', scikit: '📊', pandas: '🐼',
+    numpy: '🔢', plotly: '📈', yfinance: '💹', arima: '📉'
   };
 
   return (
-    <section id="skills" className={`min-h-screen py-20 ${
-      isDarkMode ? 'bg-gradient-to-b from-black via-gray-900 to-black' : 'bg-gradient-to-b from-sky-50 via-white to-sky-50'
-    }`}>
+    <section id="skills" className={`min-h-screen py-20 ${isDarkMode ? 'bg-gradient-to-b from-black via-gray-900 to-black' : 'bg-gradient-to-b from-sky-50 via-white to-sky-50'
+      }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className={`text-4xl md:text-5xl font-bold text-center mb-16 ${
-          isDarkMode ? 'text-white' : 'text-gray-900'
-        }`}>
+        <h2 className={`text-4xl md:text-5xl font-bold text-center mb-16 ${isDarkMode ? 'text-white' : 'text-gray-900'
+          }`}>
           My Skills
         </h2>
-        
+
         <div className="space-y-12">
           {skillCategories.map((category, catIndex) => (
-            <div key={catIndex} className={`rounded-xl p-8 ${
-              isDarkMode ? 'bg-gray-800/30 border border-gray-700/30' : 'bg-white/50 border border-gray-200/50'
-            } backdrop-blur-md`}>
-              <h3 className={`text-2xl font-bold mb-8 flex items-center gap-3 ${
-                isDarkMode ? 'text-white' : 'text-gray-900'
-              }`}>
+            <div key={catIndex} className={`rounded-2xl p-8 ${isDarkMode ? 'bg-gray-800/30 border border-gray-700/30' : 'bg-white/50 border border-gray-200/50'
+              } backdrop-blur-md shadow-lg`}>
+              <h3 className={`text-2xl font-bold mb-8 flex items-center gap-3 ${isDarkMode ? 'text-white' : 'text-gray-900'
+                }`}>
                 <span>{category.icon}</span>
                 {category.title}
               </h3>
-              
+
               <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
                 {category.skills.map((skill) => (
                   <div
                     key={skill.id}
-                    className={`group relative overflow-hidden rounded-lg p-4 transition-all duration-300 transform hover:scale-110 flex flex-col items-center justify-center ${
-                      isDarkMode 
-                        ? 'bg-gray-700/50 hover:bg-cyan-500/20' 
-                        : 'bg-white/70 hover:bg-blue-100'
-                    } cursor-pointer`}
+                    className={`group relative overflow-hidden rounded-xl p-6 transition-all duration-300 transform hover:scale-110 hover:-translate-y-2 flex flex-col items-center justify-center ${isDarkMode
+                      ? 'bg-gray-800/40 hover:bg-cyan-500/30 border border-gray-700/50'
+                      : 'bg-white/60 hover:bg-blue-100/80 border border-gray-200/50'
+                      } backdrop-blur-lg cursor-pointer shadow-lg hover:shadow-2xl`}
                   >
-                    <div className="text-3xl mb-2">{iconMap[skill.icon] || '💻'}</div>
-                    <p className={`text-sm font-semibold text-center ${
-                      isDarkMode ? 'text-gray-100' : 'text-gray-800'
-                    }`}>
-                      {skill.name}
-                    </p>
+                    {/* Glassmorphism shine effect */}
+                    <div className={`absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${isDarkMode
+                      ? 'bg-gradient-to-br from-cyan-500/20 to-transparent'
+                      : 'bg-gradient-to-br from-blue-400/20 to-transparent'
+                      }`} />
+
+                    {/* Content */}
+                    <div className="relative z-10 flex flex-col items-center">
+                      <div className="text-4xl mb-3">{iconMap[skill.icon] || '💻'}</div>
+                      <p className={`text-sm font-bold text-center ${isDarkMode ? 'text-gray-100' : 'text-gray-800'
+                        }`}>
+                        {skill.name}
+                      </p>
+                    </div>
+
+                    {/* Glow effect on hover */}
+                    <div className={`absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl ${isDarkMode
+                      ? 'bg-cyan-500/20'
+                      : 'bg-blue-500/20'
+                      }`} />
                   </div>
                 ))}
               </div>
@@ -603,13 +614,11 @@ const ProjectsSection = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <section id="projects" className={`min-h-screen py-20 ${
-      isDarkMode ? 'bg-gradient-to-b from-gray-900 via-black to-gray-900' : 'bg-gradient-to-b from-white via-sky-50 to-white'
-    }`}>
+    <section id="projects" className={`min-h-screen py-20 ${isDarkMode ? 'bg-gradient-to-b from-gray-900 via-black to-gray-900' : 'bg-gradient-to-b from-white via-sky-50 to-white'
+      }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className={`text-4xl md:text-5xl font-bold text-center mb-16 ${
-          isDarkMode ? 'text-white' : 'text-gray-900'
-        }`}>
+        <h2 className={`text-4xl md:text-5xl font-bold text-center mb-16 ${isDarkMode ? 'text-white' : 'text-gray-900'
+          }`}>
           Featured Projects
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -617,53 +626,47 @@ const ProjectsSection = () => {
             <div
               key={project.id}
               onClick={() => setSelectedProject(project)}
-              className={`group relative overflow-hidden rounded-xl cursor-pointer transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 ${
-                isDarkMode 
-                  ? 'bg-gray-800/50 border border-gray-700/30'
-                  : 'bg-white/70 border border-gray-200/50'
-              } backdrop-blur-md shadow-lg`}
+              className={`group relative overflow-hidden rounded-xl cursor-pointer transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 ${isDarkMode
+                ? 'bg-gray-800/50 border border-gray-700/30'
+                : 'bg-white/70 border border-gray-200/50'
+                } backdrop-blur-md shadow-lg`}
             >
               <div className="h-48 bg-gradient-to-br from-cyan-500/30 to-blue-500/30 relative overflow-hidden">
-                <img 
-                  src={project.image} 
+                <img
+                  src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity"
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300" />
               </div>
               <div className="p-6">
-                <h3 className={`text-xl font-semibold mb-2 ${
-                  isDarkMode ? 'text-white' : 'text-gray-900'
-                }`}>
+                <h3 className={`text-xl font-semibold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'
+                  }`}>
                   {project.title}
                 </h3>
-                <p className={`text-sm mb-2 font-medium ${
-                  isDarkMode ? 'text-cyan-400' : 'text-blue-600'
-                }`}>
+                <p className={`text-sm mb-2 font-medium ${isDarkMode ? 'text-cyan-400' : 'text-blue-600'
+                  }`}>
                   {project.subtitle}
                 </p>
-                <p className={`text-sm mb-4 line-clamp-2 ${
-                  isDarkMode ? 'text-gray-400' : 'text-gray-600'
-                }`}>
+                <p className={`text-sm mb-4 line-clamp-2 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'
+                  }`}>
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {project.techStack.slice(0, 3).map((tech, index) => (
                     <span
                       key={index}
-                      className={`px-2 py-1 rounded-full text-xs font-medium ${
-                        isDarkMode 
-                          ? 'bg-cyan-500/20 text-cyan-400'
-                          : 'bg-blue-100 text-blue-600'
-                      }`}
+                      className={`px-2 py-1 rounded-full text-xs font-medium ${isDarkMode
+                        ? 'bg-cyan-500/20 text-cyan-400'
+                        : 'bg-blue-100 text-blue-600'
+                        }`}
                     >
                       {tech}
                     </span>
                   ))}
                   {project.techStack.length > 3 && (
-                    <span className={`px-2 py-1 text-xs font-medium ${
-                      isDarkMode ? 'text-gray-400' : 'text-gray-600'
-                    }`}>
+                    <span className={`px-2 py-1 text-xs font-medium ${isDarkMode ? 'text-gray-400' : 'text-gray-600'
+                      }`}>
                       +{project.techStack.length - 3}
                     </span>
                   )}
@@ -674,16 +677,15 @@ const ProjectsSection = () => {
         </div>
       </div>
 
-      {/* Project Modal */}
+      {/* Enhanced Project Modal */}
       {selectedProject && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
           onClick={() => setSelectedProject(null)}
         >
           <div
-            className={`relative w-full max-w-4xl rounded-2xl overflow-hidden ${
-              isDarkMode ? 'bg-gray-900 border border-gray-700' : 'bg-white border border-gray-200'
-            } shadow-2xl max-h-[90vh] overflow-y-auto`}
+            className={`relative w-full max-w-6xl rounded-2xl overflow-hidden ${isDarkMode ? 'bg-gray-900 border border-gray-700' : 'bg-white border border-gray-200'
+              } shadow-2xl max-h-[90vh] overflow-y-auto`}
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -692,84 +694,204 @@ const ProjectsSection = () => {
             >
               <X className="mx-auto" size={20} />
             </button>
-            <div className="grid md:grid-cols-2 gap-8 p-8">
-              <div className="h-64 md:h-full rounded-xl bg-gradient-to-br from-cyan-500/30 to-blue-500/30 overflow-hidden">
-                <img 
-                  src={selectedProject.image}
-                  alt={selectedProject.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div>
-                <h2 className={`text-3xl font-bold mb-2 ${
-                  isDarkMode ? 'text-white' : 'text-gray-900'
-                }`}>
+
+            <div className="p-8">
+              {/* Header Section */}
+              <div className="mb-8">
+                <h2 className={`text-4xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'
+                  }`}>
                   {selectedProject.title}
                 </h2>
-                <p className={`text-lg font-medium mb-4 ${
-                  isDarkMode ? 'text-cyan-400' : 'text-blue-600'
-                }`}>
+                <p className={`text-xl font-medium mb-4 ${isDarkMode ? 'text-cyan-400' : 'text-blue-600'
+                  }`}>
                   {selectedProject.subtitle}
                 </p>
-                <p className={`mb-6 leading-relaxed ${
-                  isDarkMode ? 'text-gray-300' : 'text-gray-600'
-                }`}>
+                <p className={`text-base leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'
+                  }`}>
                   {selectedProject.description}
                 </p>
-                <div className="mb-6">
-                  <h3 className={`text-xl font-semibold mb-3 ${
-                    isDarkMode ? 'text-white' : 'text-gray-900'
+              </div>
+
+              {/* Project Context Section (Why, When, How) */}
+              {(selectedProject.why || selectedProject.when || selectedProject.how) && (
+                <div className={`grid md:grid-cols-3 gap-6 mb-8 p-6 rounded-xl ${isDarkMode ? 'bg-gray-800/50' : 'bg-gray-50'
                   }`}>
-                    Tech Stack
+                  {selectedProject.why && (
+                    <div>
+                      <h3 className={`text-lg font-bold mb-2 flex items-center gap-2 ${isDarkMode ? 'text-cyan-400' : 'text-blue-600'
+                        }`}>
+                        <span className="text-2xl">💡</span> Why This Project?
+                      </h3>
+                      <p className={`text-sm leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                        }`}>
+                        {selectedProject.why}
+                      </p>
+                    </div>
+                  )}
+
+                  {selectedProject.when && (
+                    <div>
+                      <h3 className={`text-lg font-bold mb-2 flex items-center gap-2 ${isDarkMode ? 'text-cyan-400' : 'text-blue-600'
+                        }`}>
+                        <span className="text-2xl">📅</span> Timeline
+                      </h3>
+                      <p className={`text-sm leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                        }`}>
+                        {selectedProject.when}
+                      </p>
+                    </div>
+                  )}
+
+                  {selectedProject.how && (
+                    <div>
+                      <h3 className={`text-lg font-bold mb-2 flex items-center gap-2 ${isDarkMode ? 'text-cyan-400' : 'text-blue-600'
+                        }`}>
+                        <span className="text-2xl">⚙️</span> How It Works
+                      </h3>
+                      <p className={`text-sm leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                        }`}>
+                        {selectedProject.how}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Detailed Tech Stack */}
+              {selectedProject.techStackDetailed && (
+                <div className="mb-8">
+                  <h3 className={`text-2xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'
+                    }`}>
+                    🛠️ Technology Stack
                   </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {selectedProject.techStack.map((tech, index) => (
-                      <span
-                        key={index}
-                        className={`px-4 py-2 rounded-full text-sm font-medium ${
-                          isDarkMode 
-                            ? 'bg-cyan-500/20 text-cyan-400'
-                            : 'bg-blue-100 text-blue-600'
-                        }`}
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {Object.entries(selectedProject.techStackDetailed).map(([category, techs]) => (
+                      <div
+                        key={category}
+                        className={`p-4 rounded-lg ${isDarkMode ? 'bg-gray-800/50' : 'bg-gray-50'
+                          }`}
                       >
-                        {tech}
-                      </span>
+                        <h4 className={`font-semibold mb-2 capitalize ${isDarkMode ? 'text-cyan-400' : 'text-blue-600'
+                          }`}>
+                          {category.replace(/([A-Z])/g, ' $1').trim()}
+                        </h4>
+                        <div className="flex flex-wrap gap-2">
+                          {techs.map((tech, idx) => (
+                            <span
+                              key={idx}
+                              className={`px-2 py-1 rounded text-xs font-medium ${isDarkMode
+                                ? 'bg-gray-700 text-gray-300'
+                                : 'bg-white text-gray-700 border border-gray-200'
+                                }`}
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
                     ))}
                   </div>
                 </div>
-                <div className="flex space-x-4">
-                  {selectedProject.githubLink && (
-                    <a
-                      href={selectedProject.githubLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`flex items-center space-x-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                        isDarkMode 
+              )}
+
+              {/* Key Features */}
+              {selectedProject.features && selectedProject.features.length > 0 && (
+                <div className="mb-8">
+                  <h3 className={`text-2xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'
+                    }`}>
+                    ✨ Key Features
+                  </h3>
+                  <div className="grid md:grid-cols-2 gap-3">
+                    {selectedProject.features.map((feature, idx) => (
+                      <div
+                        key={idx}
+                        className={`flex items-start gap-3 p-3 rounded-lg ${isDarkMode ? 'bg-gray-800/50' : 'bg-gray-50'
+                          }`}
+                      >
+                        <span className={`text-lg ${isDarkMode ? 'text-cyan-400' : 'text-blue-600'
+                          }`}>
+                          ✓
+                        </span>
+                        <span className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                          }`}>
+                          {feature}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Repository Links */}
+              {selectedProject.repositories && selectedProject.repositories.length > 0 && (
+                <div className="mb-8">
+                  <h3 className={`text-2xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'
+                    }`}>
+                    📂 Source Code
+                  </h3>
+                  <div className="flex flex-wrap gap-4">
+                    {selectedProject.repositories.map((repo, idx) => (
+                      <a
+                        key={idx}
+                        href={repo.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${isDarkMode
+                          ? 'bg-gray-800 text-cyan-400 hover:bg-gray-700 border border-gray-700'
+                          : 'bg-gray-100 text-blue-600 hover:bg-gray-200 border border-gray-300'
+                          }`}
+                      >
+                        <Github size={20} />
+                        <span>{repo.label}</span>
+                        <ExternalLink size={16} />
+                      </a>
+                    ))}
+                    {selectedProject.websiteLink && (
+                      <a
+                        href={selectedProject.websiteLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${isDarkMode
                           ? 'bg-cyan-500 text-white hover:bg-cyan-400'
                           : 'bg-blue-600 text-white hover:bg-blue-700'
-                      }`}
-                    >
-                      <Github size={20} />
-                      <span>GitHub</span>
-                    </a>
-                  )}
-                  {selectedProject.websiteLink && (
-                    <a
-                      href={selectedProject.websiteLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`flex items-center space-x-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                        isDarkMode 
-                          ? 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
-                          : 'bg-gray-100 text-gray-900 hover:bg-gray-200 border border-gray-300'
-                      }`}
-                    >
-                      <ExternalLink size={20} />
-                      <span>Live Demo</span>
-                    </a>
-                  )}
+                          }`}
+                      >
+                        <ExternalLink size={20} />
+                        <span>Live Demo</span>
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </div>
+              )}
+
+              {/* Future Scope */}
+              {selectedProject.futureScope && selectedProject.futureScope.length > 0 && (
+                <div className={`p-6 rounded-xl ${isDarkMode ? 'bg-gradient-to-br from-cyan-900/20 to-blue-900/20 border border-cyan-500/30' : 'bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200'
+                  }`}>
+                  <h3 className={`text-2xl font-bold mb-4 flex items-center gap-2 ${isDarkMode ? 'text-white' : 'text-gray-900'
+                    }`}>
+                    🚀 Future Improvements & Upcoming Features
+                  </h3>
+                  <div className="grid md:grid-cols-2 gap-3">
+                    {selectedProject.futureScope.map((item, idx) => (
+                      <div
+                        key={idx}
+                        className={`flex items-start gap-3 p-3 rounded-lg ${isDarkMode ? 'bg-gray-800/50' : 'bg-white/70'
+                          }`}
+                      >
+                        <span className={`text-lg ${isDarkMode ? 'text-cyan-400' : 'text-blue-600'
+                          }`}>
+                          →
+                        </span>
+                        <span className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                          }`}>
+                          {item}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -783,44 +905,38 @@ const ExperienceSection = () => {
   const { isDarkMode } = useTheme();
 
   return (
-    <section className={`py-20 ${
-      isDarkMode ? 'bg-gradient-to-b from-black via-gray-900 to-black' : 'bg-gradient-to-b from-sky-50 via-white to-sky-50'
-    }`}>
+    <section className={`py-20 ${isDarkMode ? 'bg-gradient-to-b from-black via-gray-900 to-black' : 'bg-gradient-to-b from-sky-50 via-white to-sky-50'
+      }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className={`text-4xl md:text-5xl font-bold text-center mb-16 ${
-          isDarkMode ? 'text-white' : 'text-gray-900'
-        }`}>
+        <h2 className={`text-4xl md:text-5xl font-bold text-center mb-16 ${isDarkMode ? 'text-white' : 'text-gray-900'
+          }`}>
           Experience
         </h2>
-        
+
         <div className="space-y-8">
           {experiencedata.map((exp) => (
             <div
               key={exp.id}
-              className={`rounded-xl p-8 ${
-                isDarkMode ? 'bg-gray-800/30 border border-gray-700/30' : 'bg-white/50 border border-gray-200/50'
-              } backdrop-blur-md`}
+              className={`rounded-xl p-8 ${isDarkMode ? 'bg-gray-800/30 border border-gray-700/30' : 'bg-white/50 border border-gray-200/50'
+                } backdrop-blur-md`}
             >
               <div className="flex items-start gap-6">
-                <img 
+                <img
                   src={exp.image}
                   alt={exp.subtitle}
                   className="w-20 h-20 rounded-lg object-cover"
                 />
                 <div className="flex-1">
-                  <h3 className={`text-2xl font-bold mb-1 ${
-                    isDarkMode ? 'text-white' : 'text-gray-900'
-                  }`}>
+                  <h3 className={`text-2xl font-bold mb-1 ${isDarkMode ? 'text-white' : 'text-gray-900'
+                    }`}>
                     {exp.title}
                   </h3>
-                  <p className={`text-lg font-semibold mb-3 ${
-                    isDarkMode ? 'text-cyan-400' : 'text-blue-600'
-                  }`}>
+                  <p className={`text-lg font-semibold mb-3 ${isDarkMode ? 'text-cyan-400' : 'text-blue-600'
+                    }`}>
                     {exp.subtitle}
                   </p>
-                  <p className={`leading-relaxed mb-4 ${
-                    isDarkMode ? 'text-gray-300' : 'text-gray-600'
-                  }`}>
+                  <p className={`leading-relaxed mb-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'
+                    }`}>
                     {exp.description}
                   </p>
                   {exp.githubLink && (
@@ -828,11 +944,10 @@ const ExperienceSection = () => {
                       href={exp.githubLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`inline-flex items-center space-x-2 px-4 py-2 rounded-full font-semibold transition-all duration-300 ${
-                        isDarkMode 
-                          ? 'bg-cyan-500/20 text-cyan-400 hover:bg-cyan-500/30'
-                          : 'bg-blue-100 text-blue-600 hover:bg-blue-200'
-                      }`}
+                      className={`inline-flex items-center space-x-2 px-4 py-2 rounded-full font-semibold transition-all duration-300 ${isDarkMode
+                        ? 'bg-cyan-500/20 text-cyan-400 hover:bg-cyan-500/30'
+                        : 'bg-blue-100 text-blue-600 hover:bg-blue-200'
+                        }`}
                     >
                       <Github size={18} />
                       <span>View Repository</span>
@@ -853,51 +968,43 @@ const EducationSection = () => {
   const { isDarkMode } = useTheme();
 
   return (
-    <section className={`py-20 ${
-      isDarkMode ? 'bg-gradient-to-b from-gray-900 via-black to-gray-900' : 'bg-gradient-to-b from-white via-sky-50 to-white'
-    }`}>
+    <section className={`py-20 ${isDarkMode ? 'bg-gradient-to-b from-gray-900 via-black to-gray-900' : 'bg-gradient-to-b from-white via-sky-50 to-white'
+      }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className={`text-4xl md:text-5xl font-bold text-center mb-16 ${
-          isDarkMode ? 'text-white' : 'text-gray-900'
-        }`}>
+        <h2 className={`text-4xl md:text-5xl font-bold text-center mb-16 ${isDarkMode ? 'text-white' : 'text-gray-900'
+          }`}>
           Education
         </h2>
-        
+
         <div className="space-y-6">
           {educationdata.map((edu) => (
             <div
               key={edu.id}
-              className={`rounded-xl p-8 ${
-                isDarkMode ? 'bg-gray-800/30 border border-gray-700/30' : 'bg-white/50 border border-gray-200/50'
-              } backdrop-blur-md`}
+              className={`rounded-xl p-8 ${isDarkMode ? 'bg-gray-800/30 border border-gray-700/30' : 'bg-white/50 border border-gray-200/50'
+                } backdrop-blur-md`}
             >
               <div className="flex justify-between items-start gap-4">
                 <div className="flex-1">
-                  <h3 className={`text-2xl font-bold mb-2 ${
-                    isDarkMode ? 'text-white' : 'text-gray-900'
-                  }`}>
+                  <h3 className={`text-2xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'
+                    }`}>
                     {edu.course}
                   </h3>
-                  <p className={`text-lg font-semibold mb-2 ${
-                    isDarkMode ? 'text-cyan-400' : 'text-blue-600'
-                  }`}>
+                  <p className={`text-lg font-semibold mb-2 ${isDarkMode ? 'text-cyan-400' : 'text-blue-600'
+                    }`}>
                     {edu.college}
                   </p>
-                  <p className={`${
-                    isDarkMode ? 'text-gray-400' : 'text-gray-600'
-                  }`}>
+                  <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'
+                    }`}>
                     {edu.university}
                   </p>
                 </div>
                 <div className="text-right">
-                  <p className={`text-lg font-semibold ${
-                    isDarkMode ? 'text-cyan-400' : 'text-blue-600'
-                  }`}>
+                  <p className={`text-lg font-semibold ${isDarkMode ? 'text-cyan-400' : 'text-blue-600'
+                    }`}>
                     {edu.year}
                   </p>
-                  <p className={`font-semibold ${
-                    isDarkMode ? 'text-gray-300' : 'text-gray-700'
-                  }`}>
+                  <p className={`font-semibold ${isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                    }`}>
                     {edu.grade}
                   </p>
                 </div>
@@ -926,9 +1033,8 @@ const Footer = () => {
   };
 
   return (
-    <footer id="contact" className={`relative py-16 overflow-hidden ${
-      isDarkMode ? 'bg-black' : 'bg-sky-50'
-    }`}>
+    <footer id="contact" className={`relative py-16 overflow-hidden ${isDarkMode ? 'bg-black' : 'bg-sky-50'
+      }`}>
       {/* Animated stars background */}
       <div className="absolute inset-0 overflow-hidden opacity-30">
         {[...Array(50)].map((_, i) => (
@@ -955,28 +1061,25 @@ const Footer = () => {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`p-3 rounded-full transition-all duration-300 transform hover:scale-110 ${
-                  isDarkMode 
-                    ? 'bg-cyan-500/20 text-cyan-400 hover:bg-cyan-500/30'
-                    : 'bg-blue-100 text-blue-600 hover:bg-blue-200'
-                }`}
+                className={`p-3 rounded-full transition-all duration-300 transform hover:scale-110 ${isDarkMode
+                  ? 'bg-cyan-500/20 text-cyan-400 hover:bg-cyan-500/30'
+                  : 'bg-blue-100 text-blue-600 hover:bg-blue-200'
+                  }`}
               >
                 <Icon size={24} />
               </a>
             ))}
           </div>
-          <p className={`text-sm mb-6 ${
-            isDarkMode ? 'text-gray-400' : 'text-gray-600'
-          }`}>
+          <p className={`text-sm mb-6 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'
+            }`}>
             © {new Date().getFullYear()} {aboutdetails.name}. All Rights Reserved.
           </p>
           <button
             onClick={scrollToTop}
-            className={`p-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 ${
-              isDarkMode 
-                ? 'bg-cyan-500 text-white hover:bg-cyan-400'
-                : 'bg-blue-600 text-white hover:bg-blue-700'
-            }`}
+            className={`p-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 ${isDarkMode
+              ? 'bg-cyan-500 text-white hover:bg-cyan-400'
+              : 'bg-blue-600 text-white hover:bg-blue-700'
+              }`}
           >
             <ArrowUp size={24} />
           </button>
