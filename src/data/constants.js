@@ -14,7 +14,7 @@ export const projectsdata = [
     subtitle: "CAT Preparation Platform",
     description:
       "Backend-driven full-stack platform for CAT preparation featuring authentication, mock tests, performance analytics, and admin workflows. Designed REST APIs, relational data models, and complete test lifecycle handling with a production-ready architecture.",
-    image: "https://drive.google.com/file/d/1jfhydXaojnKHXlLJvs3sizTtw_xsTAlw/view?usp=drive_link",
+    image: "https://drive.google.com/uc?export=view&id=1jfhydXaojnKHXlLJvs3sizTtw_xsTAlw",
     techStack: ["Node.js", "Express", "PostgreSQL", "Prisma", "React", "TypeScript"],
 
     // Detailed Project Information
@@ -66,7 +66,7 @@ export const projectsdata = [
     subtitle: "Vocabulary Building Application",
     description:
       "Full-stack vocabulary management application designed for exam preparation. Supports word storage, search, and retrieval with clean REST APIs and a responsive frontend integrated with backend services.",
-    image: "https://drive.google.com/file/d/1_xrWAQe_Mt1wUO9nQBX8JL9mTXJA4hWW/view?usp=drive_link",
+    image: "https://drive.google.com/uc?export=view&id=1_xrWAQe_Mt1wUO9nQBX8JL9mTXJA4hWW",
     techStack: ["React", "Node.js", "Express", "MongoDB"],
 
     // Detailed Project Information
@@ -123,7 +123,7 @@ export const projectsdata = [
     subtitle: "Data Analysis & Visualization Platform",
     description:
       "Intelligent data analytics platform that automatically parses uploaded files (PDF/CSV), performs statistical analysis, and generates interactive visualizations. Built during internship to solve real-world data insight extraction challenges.",
-    image: "https://drive.google.com/file/d/1DED4xNsfB2NvZMtxrFQgr1py8EouoycU/view?usp=drive_link",
+    image: "https://drive.google.com/uc?export=view&id=1DED4xNsfB2NvZMtxrFQgr1py8EouoycU",
     techStack: ["React", "Node.js", "Express", "Chart.js", "Tailwind CSS"],
 
     // Detailed Project Information
@@ -179,7 +179,7 @@ export const projectsdata = [
     subtitle: "Role-Based Smart E-Commerce Platform",
     description:
       "Intelligent e-commerce platform featuring role-based product bundling using ML association rule mining. Automatically suggests optimized product bundles for YouTube Creators, Teachers, Students, and Professionals with bulk discounts.",
-    image: "https://drive.google.com/file/d/1euYyk-dsqcAsMEZjiXxpJoP0Eg7uJ8fY/view?usp=drive_link",
+    image: "https://drive.google.com/uc?export=view&id=1euYyk-dsqcAsMEZjiXxpJoP0Eg7uJ8fY",
     techStack: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "ML (Apriori Algorithm)"],
 
     // Detailed Project Information
@@ -239,7 +239,7 @@ export const projectsdata = [
     subtitle: "Stock Market Analysis Platform",
     description:
       "Comprehensive stock market analysis platform with real-time data fetching, technical indicators, ML-based predictions, and interactive visualizations. Features ensemble prediction models and SMS alerts.",
-    image: "https://drive.google.com/file/d/13LYG5K8CFAFJbWh4JhXLmhnjm3gR6If7/view?usp=drive_link",
+    image: "https://drive.google.com/uc?export=view&id=13LYG5K8CFAFJbWh4JhXLmhnjm3gR6If7",
     techStack: ["Python", "Streamlit", "Pandas", "NumPy", "Plotly", "yfinance", "Scikit-learn"],
 
     // Detailed Project Information
